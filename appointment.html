@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+
+        body {
+            background: linear-gradient(to right, #1E90FF, #000000);
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+            margin: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1E90FF;
+        }
+
+        label {
+            color: #1E90FF;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background: linear-gradient(to bottom, #1E90FF, #000000);
+            }
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <h2>Book an Appointment</h2>
+
+        <form>
+
+            <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" class="form-control" id="fullname" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="appointmentDate">Preferred Appointment Date</label>
+                <input type="date" class="form-control" id="appointmentDate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message (optional)</label>
+                <textarea class="form-control" id="message" rows="3" placeholder="Enter your message" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
