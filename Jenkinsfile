@@ -2,12 +2,17 @@ pipeline {
     agent any
 
     stages {
-       stage('Deploy Static Site with Docker Compose') {
-    steps {
-        bat docker compose down || echo "Docker Compose down failed" && docker compose up -d --build
-
-    }
-}
-
+        stage('Deploy Static Site with Docker Compose') {
+            steps {
+                script {
+                    try {
+                        bat 'docker compose down'
+                    } catch (Exception e) {
+                        echo 'Docker Compose down failed'
+                    }
+                    bat 'docker compose up -d --build'
+                }
+            }
+        }
     }
 }
