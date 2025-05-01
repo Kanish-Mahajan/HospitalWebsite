@@ -1,10 +1,9 @@
 version: '3.8'
+
 services:
   hospital-frontend:
-    image: nginx:alpine
+    build: .
     container_name: hospital_frontend
     ports:
       - "8081:80"
-    volumes:
-      - ./src:/usr/share/nginx/html:ro
     restart: always
