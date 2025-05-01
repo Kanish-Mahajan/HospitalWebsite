@@ -4,7 +4,8 @@ pipeline {
     stages {
        stage('Deploy Static Site with Docker Compose') {
     steps {
-        bat 'docker compose down || true && docker compose up -d --build'
+        bat docker compose down || echo "Docker Compose down failed" && docker compose up -d --build
+
     }
 }
 
