@@ -1,11 +1,11 @@
-version: '3.8'
+# Use official nginx image
+FROM nginx:latest
 
-services:
-  hospital-frontend:
-    image: nginx:alpine
-    container_name: hospital_frontend
-    ports:
-      - "8081:80"
-    volumes:
-      - ./src:/usr/share/nginx/html:ro
-    restart: always
+# Remove the default nginx static website
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy your frontend files into nginx html folder
+COPY . /usr/share/nginx/html
+
+# Expose port 80
+EXPOSE 80
