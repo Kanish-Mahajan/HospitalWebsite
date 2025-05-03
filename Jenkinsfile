@@ -2,17 +2,37 @@ pipeline {
     agent any
 
     stages {
-        stage('Deploy Static Site with Docker Compose') {
+        stage('Build Docker Image') {
+            steps {
+                bat 'docker build -t hospital_frontend .'
+            }
+        }
+
+        stage('Stop Existing Container') {
             steps {
                 script {
                     try {
                         bat 'docker compose down'
                     } catch (Exception e) {
-                        echo 'Docker Compose down failed'
+                        echo 'No existing container to stop.'
                     }
-                    bat 'docker compose up -d --build'
                 }
             }
+        }
+
+        stage('Deploy New Container') {
+            steps {
+                bat 'docker compose up -d --build'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo '✅ Deployment successful!'
+        }
+        failure {
+            echo '❌ Deployment failed.'
         }
     }
 }
