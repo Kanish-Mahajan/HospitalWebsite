@@ -20,7 +20,7 @@ pipeline {
             }
         }
 
-        stage('Deploy New Container') {
+        stage('Creating New Container') {
             steps {
                 bat 'docker compose up -d --build'
             }
